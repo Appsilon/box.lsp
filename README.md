@@ -21,7 +21,7 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
 ## How to use
 
-1. Copy the contents of `Rprofile.R` to your project's `.Rprofile`.
+1. Copy the contents of `inst/Rprofile.R` to your project's `.Rprofile`.
 2. Restart the R session to load `.Rprofile`.
 
 ## How to develop

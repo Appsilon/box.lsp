@@ -7,6 +7,8 @@ suppressPackageStartupMessages({
   library(fs)
 })
 
+source(fs::path_package("box.lsp", "Rprofile.R"))
+
 # a hack to make withr::defer_parent to work, see https://github.com/r-lib/withr/issues/123
 defer <- withr::defer
 
@@ -15,6 +17,18 @@ expect_equivalent <- function(x, y) {
 }
 
 language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabilities = NULL) {
+  withr::local_dir(working_dir)
+  withr::local_file(".Rprofile", {
+    if (testthat::is_checking()) {
+      rprofile <- readLines(fs::path_package("box.lsp", "Rprofile.R"))
+    } else {
+      rprofile <- readLines(fs::path("..", "..", "inst", "Rprofile.R"))
+    }
+
+    writeLines(rprofile, ".Rprofile")
+    readLines(".Rprofile")
+  })
+
   if (nzchar(Sys.getenv("R_LANGSVR_LOG"))) {
     script <- sprintf(
       "languageserver::run(debug = '%s')",
