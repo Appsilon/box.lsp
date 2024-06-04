@@ -1,0 +1,23 @@
+Package: box.lsp
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+  c(
+    person("Ricardo Rodrigo", "Basa", role = c("aut", "cre"), email = "opensource+rodrigo@appsilon.com"),
+    person("Pavel", "Demin", role = "aut", email = "pavel.demin@appsilon.com"),
+    person("Jakub", "Nowicki", role = "aut", email = "kuba@appsilon.com"),
+    person("Appsilon Sp. z o.o.", role = "cph", email = "opensource@appsilon.com")
+  )
+Description: What the package does (one paragraph).
+License: LGPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: 
+    box,
+    purrr
+Suggests:
+    languageserver,
+    lintr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
