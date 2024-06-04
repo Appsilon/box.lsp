@@ -8,6 +8,7 @@ The code is based on initial work by Pavel Demin (@Gotfrid).
 ## What Works
 
 | `box::use()`              | Code completion | Param completion | Tooltip help | As of version | Notes |
+|---------------------------|:-:|:-:|:-:|--------:|:-:|
 | `pkg[...]`                |   |   |   |         |   |
 | `pkg[attach_list]`        |   |   |   |         |   |
 | `pkg`                     |   |   |   |         |   |
