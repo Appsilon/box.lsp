@@ -39,7 +39,6 @@ box_use_parser <- function(expr, action) {
   action$update(packages = packages)
 }
 
-
 options(
   languageserver.parser_hooks = list(
     "box::use" = box_use_parser
