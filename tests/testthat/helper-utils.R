@@ -7,8 +7,6 @@ suppressPackageStartupMessages({
   library(fs)
 })
 
-source(fs::path_package("box.lsp", "Rprofile.R"))
-
 # a hack to make withr::defer_parent to work, see https://github.com/r-lib/withr/issues/123
 defer <- withr::defer
 
