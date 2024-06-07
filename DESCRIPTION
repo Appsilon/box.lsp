@@ -1,6 +1,6 @@
 Package: box.lsp
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
   c(
     person("Ricardo Rodrigo", "Basa", role = c("aut", "cre"), email = "opensource+rodrigo@appsilon.com"),
@@ -14,10 +14,16 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Imports: 
-    box,
-    purrr
+  box,
+  purrr
 Suggests:
-    languageserver,
-    lintr,
-    testthat (>= 3.0.0)
+  fs,
+  languageserver,
+  lintr,
+  magrittr,
+  mockery,
+  stringi,
+  stringr,
+  testthat (>= 3.0.0),
+  withr
 Config/testthat/edition: 3

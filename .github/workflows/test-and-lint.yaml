@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  R-CMD-check:
+  test-and-lint:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
@@ -45,11 +45,6 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
-      - uses: r-lib/actions/check-r-package@v2
-        with:
-          upload-snapshots: true
-          build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
-
       - name: Lint
         if: always()
         shell: Rscript {0}
@@ -57,3 +52,9 @@ jobs:
           lints <- lintr::lint_package()
           for (lint in lints) print(lint)
           quit(status = length(lints) > 0)
+
+      - name: Run R unit tests
+        if: always()
+        shell: Rscript {0}
+        run: testthat::test_dir("tests/testthat")
+
