@@ -74,9 +74,8 @@ test_that("completion of package attach list does not return non-attached functi
   client %>% did_save(temp_file)
 
   result <- client %>% respond_completion(
-    temp_file, c(1, 5) #,
-    # retry_when = function(result) result$items %>% keep(~ .$lable == "str_extract") %>% length() == 0
+    temp_file, c(1, 5)
   )
-  # print(result$items)
+
   expect_length(result$items %>% keep(~ .$label == "str_extract"), 0)
 })

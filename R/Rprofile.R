@@ -42,7 +42,10 @@ box_use_parser <- function(expr, action) {
     # for box::use(dplyr[<assign list>])
     if (x[[1]] == "[") {
       # for box::use(dplyr[alias = a])
+      # Does not seem to be needed
+      # nolint start
       # action$assign(symbol = names(x) %>% purrr::keep(~. != ""), value = NULL)
+      # nolint end
 
       # for box::use(dplyr[a, b, c])
       lapply(as.character(x)[-c(1, 2)], function(y) {
@@ -65,4 +68,3 @@ options(
     "box::use" = box_use_parser
   )
 )
-
