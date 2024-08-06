@@ -17,7 +17,7 @@ expect_equivalent <- function(x, y) {
 language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabilities = NULL) {
   withr::local_dir(working_dir)
   withr::local_file(".Rprofile", {
-    rprofile <- readLines(fs::path("..", "..", "R", "Rprofile.R"))
+    rprofile <- readLines(fs::path(rprojroot::find_rstudio_root_file(), "R", "Rprofile.R"))
 
     writeLines(rprofile, ".Rprofile")
     readLines(".Rprofile")

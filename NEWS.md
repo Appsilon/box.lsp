@@ -1,3 +1,8 @@
+* box.lsp 0.0.0.9002
+
+* support for pkg[attach_list]
+* support for pkg[alias = attached_function]
+
 # box.lsp 0.0.0.9001
 
 * Added Pavel Demin's initial work.

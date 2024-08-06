@@ -8,6 +8,12 @@ box_use_parser <- function(expr, action) {
 
     # this is for a whole package attached box::use(dplyr)
     if (typeof(x) == "symbol") {
+      # attempts to get package$func to work
+      # nolint start
+      # action$assign(symbol = paste0(as.character(x), "$", getNamespaceExports(as.character(x))), value = NULL)
+      # action$assign(symbol = getNamespaceExports(as.character(x)), value = NULL)
+      # return()
+      # nolint end
       return(as.character(x))
     }
 
@@ -33,8 +39,23 @@ box_use_parser <- function(expr, action) {
       return()
     }
 
-    # this is for package three dots attached box::use(dplyr[filter, ...])
-    as.character(x[[2]])
+    # for box::use(dplyr[<assign list>])
+    if (x[[1]] == "[") {
+      # for box::use(dplyr[alias = a])
+      # action$assign(symbol = names(x) %>% purrr::keep(~. != ""), value = NULL)
+
+      # for box::use(dplyr[a, b, c])
+      lapply(as.character(x)[-c(1, 2)], function(y) {
+        if (y != "...") {
+          action$assign(symbol = as.character(y), value = NULL)
+        }
+      })
+
+      # for box::use(dplyr[a, b, ...])
+      if (x[[length(x)]] == "...") {
+        as.character(x[[2]])
+      }
+    }
   }))
   action$update(packages = packages)
 }
@@ -44,3 +65,4 @@ options(
     "box::use" = box_use_parser
   )
 )
+
