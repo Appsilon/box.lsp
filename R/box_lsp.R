@@ -4,6 +4,14 @@ NULL
 #' @import purrr
 NULL
 
+#' Box::use Document Parser
+#'
+#' Custom {languageserver} parser hook for {box} modules.
+#'
+#' @param expr An R expression to evaluate
+#' @param action A list of action functions from `languageserver:::parse_expr()`.
+#' @returns Used for side-effects provided by the `action` list of functions.
+#'
 #' @export
 box_use_parser <- function(expr, action) {
   call <- match.call(box::use, expr)
