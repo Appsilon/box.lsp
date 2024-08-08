@@ -1,7 +1,7 @@
-# box_lsp
-Custom language server parser for box modules
+# box.lsp
+*Experimental* custom language server parser hook for `{box}` modules
 
-This repository is intended for *development purposes only*. It is structured as an R package, but, as of this time, there is *no intention to publish* it on CRAN. The R package restructure is merely being used for the development tools (`{devtools}`, `{usethis}`, `{testthat}`, et al). It may later on become part of `{rhino}` or `{languageserver}` itself.
+This package is an attempt to provide `{box}`-compatibility for `{languageserver}` used in VS Code.
 
 The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
@@ -21,17 +21,17 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
 ## How to use
 
-1. Copy the contents of `inst/Rprofile.R` to your project's `.Rprofile`.
+1. `box.lsp::use_box_lsp()` to configure your project's `.Rprofile` file.
 2. Restart the R session to load `.Rprofile`.
 
 ## How to develop
 
 1. Ensure all `Imports` and `Suggests` packages are installed.
 2. Set `R_LANGSVR_LOG=./lsp.log` in `.Renviron` to start logging
-3. Restart R session to load `.Rprofile` and `.Renviron`
+3. Restart R session to load `.Rprofile` and `.Renviron`.
 4. `devtools::load_all()` to load all development functions.
 
-### Dev work on `box_use_parser()`
+### Development work on `box_use_parser()`
 
 ```R
 action <- list(
@@ -50,9 +50,10 @@ box_use_parser(expr, action)
 
 ### Dev work on completion
 
-Lines count from zero.
+Lines and characters are index zero.
 
 ```R
+source("./tests/testthat/helper-utils.R")
 client <- language_client()
 
 temp_file <- withr::local_tempfile(fileext = ".R")
@@ -68,5 +69,81 @@ writeLines(
 client %>% did_save(temp_file)
 
 client %>% respond_completion(
-  temp_file, c(1, 8))
+  temp_file, c(1, 5))
 ```
+
+### Development and Debugging using TCP LSP Client
+
+#### Install `tcplspclient`
+
+An interactive [client](https://github.com/MilesMcBain/tcplspclient) for `{languageserver}`.
+
+```R
+pak::pkg_install("milesmcbain/tcplspclient")
+devtools::install_github("milesmcbain/tcplspclient")
+```
+
+#### On Instance A
+```R
+library(tcplspclient)
+client <- TCPLanguageClient$new(host = "localhost", port = 8888)
+```
+
+#### On Instance B with `{languageserver}` package repo open
+
+Copy 
+
+```R
+source(".Rprofile")  # custom parsers, custom lsp config
+# Add `browser()` statements inside `{languageserver}` functions, or
+# Add debug breakpoints in the RStudio editor.
+devtools::load_all()
+# Run `debugonce()`/`debug()` if needed.
+run(port = 8888)
+```
+
+#### On Instance A
+
+```R
+# tcp_test.R
+box::use(stringr[...])
+
+str_c
+
+some_list <- list(
+  aaa = "A",
+  bbb = "B"
+)
+
+some_list$a
+```
+
+```R
+# Check connection
+client$handshake()
+
+doc_path <- "tcp_test.R"
+
+# With every change made to the test document:
+client$send_notification(
+  method = "textDocument/didSave",
+  params = list(
+    textDocument = list(uri = languageserver:::path_to_uri(doc_path)),
+    text = paste0(stringi::stri_read_lines(doc_path), collapse = "\n")
+  )
+)
+
+# To trigger a completion request:
+# line and character are index 0
+client$send_message(
+  method = "textDocument/completion",
+  params = list(
+    textDocument = list(
+      uri = languageserver:::path_to_uri(doc_path)
+    ),
+    position = list(line = 2, character = 5)
+  )
+)
+```
+
+The interactive debugger runs in Instance B.
