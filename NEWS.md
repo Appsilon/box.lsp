@@ -1,4 +1,8 @@
-* box.lsp 0.0.0.9002
+# box.lsp 0.0.0.9003
+
+* steps towards package
+
+# box.lsp 0.0.0.9002
 
 * support for pkg[attach_list]
 * support for pkg[alias = attached_function]
