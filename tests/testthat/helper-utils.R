@@ -27,6 +27,7 @@ language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabili
       rprofile <- readLines(fs::path_package("box.lsp", "Rprofile.R"))
 
     } else {
+      source(fs::path(rprojroot::find_package_root_file(), "R", "box_lsp.R"))
       parser_code <- c(
         "box_use_parser <-",
         deparse(box_use_parser)
@@ -36,8 +37,8 @@ language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabili
     }
 
     write(parser_code, ".Rprofile", append = TRUE)
-
     write(rprofile, ".Rprofile", append = TRUE)
+
     readLines(".Rprofile")
   })
 
