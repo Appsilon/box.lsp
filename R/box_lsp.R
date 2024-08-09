@@ -6,7 +6,7 @@ NULL
 
 #' Box::use Document Parser
 #'
-#' Custom {languageserver} parser hook for {box} modules.
+#' Custom \{languageserver\} parser hook for \{box\} modules.
 #'
 #' @param expr An R expression to evaluate
 #' @param action A list of action functions from `languageserver:::parse_expr()`.

@@ -1,4 +1,4 @@
-#' Configures a project to use {box.lsp}
+#' Configures a project to use \{box.lsp\}
 #'
 #' @param file_path File name to append `{box.lsp}` configuration lines.
 #' @returns Writes configuration lines to `file_path`.

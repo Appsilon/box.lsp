@@ -15,5 +15,5 @@ box_use_parser(expr, action)
 Used for side-effects provided by the \code{action} list of functions.
 }
 \description{
-Custom {languageserver} parser hook for {box} modules.
+Custom \{languageserver\} parser hook for \{box\} modules.
 }

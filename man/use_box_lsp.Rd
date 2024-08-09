@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{use_box_lsp}
 \alias{use_box_lsp}
-\title{Configures a project to use {box.lsp}}
+\title{Configures a project to use \{box.lsp\}}
 \usage{
 use_box_lsp(file_path = ".Rprofile")
 }
@@ -13,5 +13,5 @@ use_box_lsp(file_path = ".Rprofile")
 Writes configuration lines to \code{file_path}.
 }
 \description{
-Configures a project to use {box.lsp}
+Configures a project to use \{box.lsp\}
 }
