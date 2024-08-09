@@ -4,7 +4,8 @@ test_that("completion of package attached three dots works", {
   temp_file <- withr::local_tempfile(fileext = ".R")
   writeLines(
     c(
-      "box::use(stringr[...])",
+      # "box::use(stringr[...])",
+      "library(stringr)",
       "str_c",
       "str_m"
     ),

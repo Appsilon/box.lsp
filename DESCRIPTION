@@ -23,7 +23,6 @@ Suggests:
   lintr,
   magrittr,
   mockery,
-  rprofile,
   rprojroot,
   stringi,
   stringr,
