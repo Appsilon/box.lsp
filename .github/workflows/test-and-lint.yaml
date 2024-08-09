@@ -45,6 +45,12 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
+      - name: R CMD CHECK
+        if: always()
+        uses: r-lib/actions/check-r-package@v2
+        with:
+          error-on: '"note"'
+
       - name: Lint
         if: always()
         shell: Rscript {0}
