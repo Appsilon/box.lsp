@@ -19,15 +19,24 @@ expect_equivalent <- function(x, y) {
 language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabilities = NULL) {
   withr::local_dir(working_dir)
   withr::local_file(".Rprofile", {
-    source(fs::path(rprojroot::find_package_root_file(), "R", "box_lsp.R"))
-    parser_code <- c(
-      "box_use_parser <-",
-      deparse(box_use_parser)
-    )
+    if (testthat::is_checking()) {
+      parser_code <- c(
+        "box_use_parser <-",
+        deparse(box.lsp::box_use_parser)
+      )
+      rprofile <- readLines(fs::path_package("box.lsp", "Rprofile.R"))
+
+    } else {
+      source(fs::path(rprojroot::find_package_root_file(), "R", "box_lsp.R"))
+      parser_code <- c(
+        "box_use_parser <-",
+        deparse(box_use_parser)
+      )
+      rprofile <- readLines(fs::path(rprojroot::find_package_root_file(), "inst", "Rprofile.R"))
+    }
+
     write(parser_code, ".Rprofile", append = TRUE)
 
-    # rprofile <- readLines(fs::path_package("box.lsp", "Rprofile.R"))
-    rprofile <- readLines(fs::path(rprojroot::find_package_root_file(), "inst", "Rprofile.R"))
     rprofile <- sub("box.lsp::", "", rprofile)
     write(rprofile, ".Rprofile", append = TRUE)
     readLines(".Rprofile")
