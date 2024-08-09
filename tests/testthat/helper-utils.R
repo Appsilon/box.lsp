@@ -28,6 +28,7 @@ language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabili
     write(rprofile, ".Rprofile", append = TRUE)
     readLines(".Rprofile")
   })
+  rprofile::load()
 
   if (nzchar(Sys.getenv("R_LANGSVR_LOG"))) {
     script <- sprintf(
