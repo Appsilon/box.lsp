@@ -50,7 +50,7 @@ jobs:
         uses: r-lib/actions/check-r-package@v2
         with:
           error-on: '"note"'
-          args: "--no-tests"
+          args: '"--no-tests"'
 
       - name: Lint
         if: always()
