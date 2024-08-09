@@ -49,7 +49,7 @@ jobs:
         if: always()
         uses: r-lib/actions/check-r-pckage@v2
         with:
-          args: ['"--no-tests"', '"--no-manual"', '"--as-cran"']
+          args: '"--no-tests", "--no-manual", "--as-cran"'
 
       - name: Lint
         if: always()
