@@ -17,8 +17,15 @@ expect_equivalent <- function(x, y) {
 language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabilities = NULL) {
   withr::local_dir(working_dir)
   withr::local_file(".Rprofile", {
+    parser_code <- c(
+      "box_use_parser <-",
+      deparse(box_use_parser)
+    )
+    write(parser_code, ".Rprofile", append = TRUE)
+
     rprofile <- readLines(fs::path_package("box.lsp", "Rprofile.R"))
-    writeLines(rprofile, ".Rprofile")
+    rprofile <- sub("box.lsp::", "", rprofile)
+    write(rprofile, ".Rprofile", append = TRUE)
     readLines(".Rprofile")
   })
 
