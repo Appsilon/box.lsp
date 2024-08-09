@@ -27,17 +27,16 @@ language_client <- function(working_dir = getwd(), diagnostics = FALSE, capabili
       rprofile <- readLines(fs::path_package("box.lsp", "Rprofile.R"))
 
     } else {
-      source(fs::path(rprojroot::find_package_root_file(), "R", "box_lsp.R"))
       parser_code <- c(
         "box_use_parser <-",
         deparse(box_use_parser)
       )
       rprofile <- readLines(fs::path(rprojroot::find_package_root_file(), "inst", "Rprofile.R"))
+      rprofile <- sub("box.lsp::", "", rprofile)
     }
 
     write(parser_code, ".Rprofile", append = TRUE)
 
-    rprofile <- sub("box.lsp::", "", rprofile)
     write(rprofile, ".Rprofile", append = TRUE)
     readLines(".Rprofile")
   })
