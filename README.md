@@ -40,12 +40,15 @@ action <- list(
   },
   update = function(packages) {
     cat(paste("Packages: ", packages, "\n"))
+  },
+  parse = function(expr) {
+    cat(paste("Parse: ", expr, "\n"))
   }
 )
 
 content <- c("box::use(stringr, dplyr[alias = filter, mutate], xml2[...])", "filt", "stringr$str_c")
 expr <- parse(text = content, keep.source = TRUE)
-box_use_parser(expr, action)
+box_use_parser(expr[[1]], action)
 ```
 
 ### Dev work on completion

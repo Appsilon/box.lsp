@@ -61,11 +61,20 @@ box_use_parser <- function(expr, action) {
       # nolint start
       # action$assign(symbol = names(x) %>% purrr::keep(~. != ""), value = NULL)
       # nolint end
-
       # for box::use(dplyr[a, b, c])
       lapply(as.character(x)[-c(1, 2)], function(y) {
         if (y != "...") {
-          action$assign(symbol = as.character(y), value = NULL)
+          namespaced_function <- paste0(as.character(x[[2]]), "::", as.character(y))
+
+          tmp_name <- "temp_func"
+          signature <- deparse(eval(parse(text = namespaced_function, keep.source = TRUE)))[[1]]
+          empty <- "{ }"
+          tmp_sig <- paste(tmp_name, "<-", signature, empty)
+          func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
+
+
+          action$assign(symbol = as.character(y), value = func_sig[[3L]])
+          action$parse(func_sig[[3L]])
         }
       })
 
