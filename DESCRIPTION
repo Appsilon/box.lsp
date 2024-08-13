@@ -1,5 +1,5 @@
 Package: box.lsp
-Title: Provides box-compatibility for languageserver.
+Title: Provides box-compatibility for languageserver
 Version: 0.0.0.9005
 Authors@R: 
   c(
