@@ -18,7 +18,8 @@ test_that("completion of whole package attached works", {
 
   result <- client %>% respond_completion(
     temp_file, c(1, 14),
-    retry_when = function(result) result$items %>% keep(~ .$label == "str_count") %>% length() == 0
+    retry_when = function(result) result$items %>%
+      keep(~ .$label == "str_count") %>% length() == 0
   )
 
   expect_length(result$items %>% keep(~ .$label == "str_count"), 1)
