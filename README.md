@@ -9,15 +9,16 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
 | `box::use()`              | Code completion | Param completion | Tooltip help | As of version | Notes |
 |---------------------------|:-:|:-:|:-:|--------:|:-:|
-| `pkg[...]`                | &check; | &check; | &check; | 0.0.0.9001 |   |
-| `pkg[attach_list]`        | &check; | &check; | &check; | 0.0.0.9004 |   |
+| `pkg[...]`                | &check; | &check; | &check; | 0.0.0.9001 | Full support |
+| `pkg[attach_list]`        | &check; | &check; | &check; | 0.0.0.9004 | Link to documentation |
 | `pkg`                     |   |   |   |         |   |
-| `prefix/mod[...]`         |   |   |   |         |   |
-| `prefix/mod[attach_list]` |   |   |   |         |   |
+| `prefix/mod[...]`         | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
+| `prefix/mod[attach_list]` | &check; | &check; | &check; |         | No documentation |
+| `prefix/mod`              |   |   |   |         |   |
 | `alias = pkg`             |   |   |   |         |   |
 | `alias = prefix/mod`      |   |   |   |         |   |
-| `pkg[alias = fun]`        |   |   |   |         |   |
-| `prefix/mod[alias = fun]` |   |   |   |         |   |
+| `pkg[alias = fun]`        | &check; | &check; | &check; | 0.0.0.9005 | No documenatation |
+| `prefix/mod[alias = fun]` | &check; | &check; | &check; | 0.0.0.9005 | No documenatation |
 
 ## How to use
 
