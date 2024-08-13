@@ -13,7 +13,7 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 | `pkg[attach_list]`        | &check; | &check; | &check; | 0.0.0.9004 | Link to documentation |
 | `pkg`                     |   |   |   |         |   |
 | `prefix/mod[...]`         | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
-| `prefix/mod[attach_list]` | &check; | &check; | &check; |         | No documentation |
+| `prefix/mod[attach_list]` | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
 | `prefix/mod`              |   |   |   |         |   |
 | `alias = pkg`             |   |   |   |         |   |
 | `alias = prefix/mod`      |   |   |   |         |   |
