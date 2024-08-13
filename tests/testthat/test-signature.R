@@ -14,8 +14,9 @@ test_that("signature works with box-attached functions", {
 
   client %>% did_save(temp_file)
 
-  result <- client %>% respond_signature(temp_file, c(1, 10),
-                                         retry_when = function(result) result$signatures %>% length() == 0)
+  result <- client %>% respond_signature(
+    temp_file, c(1, 10),
+    retry_when = function(result) result$signatures %>% length() == 0)
   expect_length(result$signatures, 1)
   expect_match(result$signatures[[1]]$label, "str_count\\(.*")
   expect_equal(result$signatures[[1]]$documentation$kind, "markdown")
