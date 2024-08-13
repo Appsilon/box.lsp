@@ -1,3 +1,8 @@
+# box.lsp 0.0.0.9005
+
+* adds support for modules
+* add aliases for both packages and modules
+
 # box.lsp 0.0.0.9003
 
 * steps towards package

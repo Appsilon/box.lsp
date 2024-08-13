@@ -90,13 +90,17 @@ box_use_parser <- function(expr, action) {
         })
       }
 
+      attached_functions <- as.list(y[-c(1, 2)])
       # this case is for app/logic/module_three[a, b, c]
-      lapply(y[-c(1, 2)], function(z) {
+      lapply(seq_along(attached_functions), function(z) {
         box_exports <- get_box_module_exports(x)
         box_exports <- unlist(box_exports)
 
-        signature <- box_exports[[z]]
-        sym_name <- as.character(z)
+        this_function <- attached_functions[[z]]
+        this_alias <- rlang::names2(attached_functions)[[z]]
+
+        signature <- box_exports[[this_function]]
+        sym_name <- ifelse(this_alias == "", this_function, this_alias)
 
         process_module(sym_name, signature, action)
       })
@@ -106,17 +110,15 @@ box_use_parser <- function(expr, action) {
 
     # for box::use(dplyr[<assign list>])
     if (x[[1]] == "[") {
-      # for box::use(dplyr[alias = a])
-      # Does not seem to be needed
-      # nolint start
-      # action$assign(symbol = names(x) %>% purrr::keep(~. != ""), value = NULL)
-      # nolint end
-      # for box::use(dplyr[a, b, c])
-      lapply(as.character(x)[-c(1, 2)], function(y) {
-        if (y != "...") {
-          namespaced_function <- paste0(as.character(x[[2]]), "::", as.character(y))
+      attached_functions <- as.list(x[-c(1, 2)])
+      lapply(seq_along(attached_functions), function(y) {
+        this_function <- attached_functions[[y]]
+        this_alias <- rlang::names2(attached_functions)[[y]]
+
+        if (this_function != "...") {
+          namespaced_function <- paste0(as.character(x[[2]]), "::", this_function)
           signature <- deparse(eval(parse(text = namespaced_function, keep.source = TRUE)))[[1]]
-          sym_name <- as.character(y)
+          sym_name <- ifelse(this_alias == "", this_function, this_alias)
 
           process_module(sym_name, signature, action)
         }
