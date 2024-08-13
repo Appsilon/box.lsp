@@ -4,6 +4,39 @@ NULL
 #' @import purrr
 NULL
 
+get_box_module_exports <- function(declaration, alias = "", caller = globalenv()) {
+  if (is.call(declaration)) {
+    declaration
+  } else if (is.character(declaration)) {
+    declaration <- rlang::parse_expr(declaration)
+  }
+  parse_spec <- get0("parse_spec", envir = base::loadNamespace("box"))
+  find_mod <- get0("find_mod.box$mod_spec", envir = base::loadNamespace("box"))
+  load_mod <- get0("load_mod.box$mod_info", envir = base::loadNamespace("box"))
+  namespace_info <- get0("namespace_info", envir = base::loadNamespace("box"))
+
+  if (any(sapply(list(parse_spec, find_mod, load_mod, namespace_info), is.null))) {
+    stop("box.linters couldn't load box functions")
+  }
+
+  spec <- parse_spec(declaration, alias)
+  info <- find_mod(spec, caller)
+  mod_ns <- load_mod(info)
+  func_names <- namespace_info(mod_ns, "exports")
+
+  lapply(func_names, function(func_name) {
+    signature <- deparse(mod_ns[[func_name]])[[1]]
+    names(signature) <- func_name
+    signature
+  })
+}
+
+
+# signature <- deparse(eval(parse(text = namespaced_function, keep.source = TRUE)))[[1]]
+# empty <- "{ }"
+# tmp_sig <- paste(tmp_name, "<-", signature, empty)
+# func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
+
 #' Box::use Document Parser
 #'
 #' Custom \{languageserver\} parser hook for \{box\} modules.
@@ -44,6 +77,10 @@ box_use_parser <- function(expr, action) {
       # this case is for app/logic/module_two[...]
       if (length(y) == 3 && y[[3]] == "...") {
         # import box module, iterate over its namespace and assign
+        box_exports <- get_box_module_exports(x)
+        lapply(box_exports, function(box_export) {
+          action$assign(symbol = names(box_export), value = box_export)
+        })
       }
 
       # this case is for app/logic/module_three[a, b, c]
