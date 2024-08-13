@@ -9,14 +9,14 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
 | `box::use()`              | Code completion | Param completion | Tooltip help | As of version | Notes |
 |---------------------------|:-:|:-:|:-:|--------:|:-:|
-| `pkg[...]`                | &check; |   |   | 0.0.0.9001 |   |
-| `pkg[attach_list]`        | &check; |   |   | 0.0.0.9002 |   |
+| `pkg[...]`                | &check; | &check; | &check; | 0.0.0.9001 |   |
+| `pkg[attach_list]`        | &check; | &check; | &check; | 0.0.0.9004 |   |
 | `pkg`                     |   |   |   |         |   |
 | `prefix/mod[...]`         |   |   |   |         |   |
 | `prefix/mod[attach_list]` |   |   |   |         |   |
 | `alias = pkg`             |   |   |   |         |   |
 | `alias = prefix/mod`      |   |   |   |         |   |
-| `pkg[alias = fun]`        | &check; |   |   | 0.0.0.9002 |   |
+| `pkg[alias = fun]`        |   |   |   |         |   |
 | `prefix/mod[alias = fun]` |   |   |   |         |   |
 
 ## How to use
