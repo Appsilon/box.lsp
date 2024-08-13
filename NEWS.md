@@ -1,3 +1,7 @@
+# box.lsp 0.0.0.9004
+
+* add function signatures
+
 # box.lsp 0.0.0.9003
 
 * steps towards package
