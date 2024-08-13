@@ -17,8 +17,8 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 | `prefix/mod`              |   |   |   |         |   |
 | `alias = pkg`             |   |   |   |         |   |
 | `alias = prefix/mod`      |   |   |   |         |   |
-| `pkg[alias = fun]`        | &check; | &check; | &check; | 0.0.0.9005 | No documenatation |
-| `prefix/mod[alias = fun]` | &check; | &check; | &check; | 0.0.0.9005 | No documenatation |
+| `pkg[alias = fun]`        | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
+| `prefix/mod[alias = fun]` | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
 
 ## How to use
 
