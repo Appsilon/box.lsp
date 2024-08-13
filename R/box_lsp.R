@@ -31,6 +31,16 @@ get_box_module_exports <- function(declaration, alias = "", caller = globalenv()
   })
 }
 
+process_module <- function(sym_name, signature, action) {
+  tmp_name <- "temp_func"
+  empty <- "{ }"
+  tmp_sig <- paste(tmp_name, "<-", signature, empty)
+  func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
+
+  action$assign(symbol = sym_name, value = func_sig[[3L]])
+  action$parse(func_sig[[3L]])
+}
+
 
 # signature <- deparse(eval(parse(text = namespaced_function, keep.source = TRUE)))[[1]]
 # empty <- "{ }"
@@ -79,13 +89,36 @@ box_use_parser <- function(expr, action) {
         # import box module, iterate over its namespace and assign
         box_exports <- get_box_module_exports(x)
         lapply(box_exports, function(box_export) {
-          action$assign(symbol = names(box_export), value = box_export)
+          sym_name <- names(box_export)
+          signature <- box_export
+
+          process_module(sym_name, signature, action)
+          # tmp_name <- "temp_func"
+          # empty <- "{ }"
+          # tmp_sig <- paste(tmp_name, "<-", signature, empty)
+          # func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
+          #
+          # action$assign(symbol = sym_name, value = func_sig[[3L]])
+          # action$parse(func_sig[[3L]])
         })
       }
 
       # this case is for app/logic/module_three[a, b, c]
       lapply(y[-c(1, 2)], function(z) {
-        action$assign(symbol = as.character(z), value = NULL)
+        box_exports <- get_box_module_exports(x)
+        box_exports <- unlist(box_exports)
+
+        signature <- box_exports[[z]]
+        sym_name <- as.character(z)
+
+        process_module(sym_name, signature, action)
+        # tmp_name <- "temp_func"
+        # empty <- "{ }"
+        # tmp_sig <- paste(tmp_name, "<-", signature, empty)
+        # func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
+        #
+        # action$assign(symbol = sym_name, value = func_sig[[3L]])
+        # action$parse(func_sig[[3L]])
       })
 
       return()
@@ -102,16 +135,17 @@ box_use_parser <- function(expr, action) {
       lapply(as.character(x)[-c(1, 2)], function(y) {
         if (y != "...") {
           namespaced_function <- paste0(as.character(x[[2]]), "::", as.character(y))
-
-          tmp_name <- "temp_func"
           signature <- deparse(eval(parse(text = namespaced_function, keep.source = TRUE)))[[1]]
-          empty <- "{ }"
-          tmp_sig <- paste(tmp_name, "<-", signature, empty)
-          func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
+          sym_name <- as.character(y)
 
-
-          action$assign(symbol = as.character(y), value = func_sig[[3L]])
-          action$parse(func_sig[[3L]])
+          process_module(sym_name, signature, action)
+          # tmp_name <- "temp_func"
+          # empty <- "{ }"
+          # tmp_sig <- paste(tmp_name, "<-", signature, empty)
+          # func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
+          #
+          # action$assign(symbol = sym_name, value = func_sig[[3L]])
+          # action$parse(func_sig[[3L]])
         }
       })
 
