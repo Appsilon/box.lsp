@@ -34,7 +34,7 @@ process_module <- function(sym_name, signature, action) {
   tmp_sig <- paste(tmp_name, "<-", signature, empty)
   func_sig <- parse(text = tmp_sig, keep.source = TRUE)[[1]]
 
-  action$assign(symbol = sym_name, value = func_sig[[3L]])
+  action$assign(symbol = as.character(sym_name), value = func_sig[[3L]])
   action$parse(func_sig[[3L]])
 }
 
