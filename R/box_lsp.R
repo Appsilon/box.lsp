@@ -1,9 +1,6 @@
 #' @import box
 NULL
 
-#' @import purrr
-NULL
-
 #' Box::use Document Parser
 #'
 #' Custom \{languageserver\} parser hook for \{box\} modules.
