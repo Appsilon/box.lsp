@@ -1,9 +1,6 @@
 #' @import box
 NULL
 
-#' @import purrr
-NULL
-
 get_box_module_exports <- function(declaration, alias = "", caller = globalenv()) {
   if (is.call(declaration)) {
     declaration

@@ -19,13 +19,13 @@ Imports:
   box,
   cli,
   fs,
-  purrr,
   rlang
 Suggests:
   languageserver,
   lintr,
   magrittr,
   mockery,
+  purrr,
   rprojroot,
   stringi,
   stringr,
