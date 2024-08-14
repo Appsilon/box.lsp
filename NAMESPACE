@@ -3,4 +3,3 @@
 export(box_use_parser)
 export(use_box_lsp)
 import(box)
-import(purrr)
