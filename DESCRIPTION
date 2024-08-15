@@ -1,6 +1,6 @@
 Package: box.lsp
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9004
+Title: Provides box-compatibility for languageserver
+Version: 0.0.0.9005
 Authors@R: 
   c(
     person("Ricardo Rodrigo", "Basa", role = c("aut", "cre"), email = "opensource+rodrigo@appsilon.com"),
@@ -8,7 +8,9 @@ Authors@R:
     person("Jakub", "Nowicki", role = "aut", email = "kuba@appsilon.com"),
     person("Appsilon Sp. z o.o.", role = "cph", email = "opensource@appsilon.com")
   )
-Description: What the package does (one paragraph).
+Description: A box-compatible custom language parser for the languageserver package to provide
+  completion and signature hints. Box is a package for modularized code. Languageserver is an
+  editor client helper for editor features such as auto completion.
 License: LGPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -16,7 +18,8 @@ RoxygenNote: 7.3.2
 Imports: 
   box,
   cli,
-  fs
+  fs,
+  rlang
 Suggests:
   languageserver,
   lintr,
