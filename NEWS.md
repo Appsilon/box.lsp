@@ -1,3 +1,7 @@
+# box.lsp 0.0.0.9006
+
+* quality of life chores
+
 # box.lsp 0.0.0.9005
 
 * adds support for modules
