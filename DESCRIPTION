@@ -1,6 +1,6 @@
 Package: box.lsp
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: 
   c(
     person("Ricardo Rodrigo", "Basa", role = c("aut", "cre"), email = "opensource+rodrigo@appsilon.com"),
