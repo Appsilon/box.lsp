@@ -20,6 +20,8 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 | `pkg[alias = fun]`        | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
 | `prefix/mod[alias = fun]` | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
 
+![](./man/figures/box.lsp_in_action.gif)
+
 ## How to use
 
 1. `box.lsp::use_box_lsp()` to configure your project's `.Rprofile` file.
