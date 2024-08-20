@@ -2,7 +2,7 @@
 % Please edit documentation in R/box_lsp.R
 \name{box_use_parser}
 \alias{box_use_parser}
-\title{Box::use Document Parser}
+\title{'box::use' Document Parser}
 \usage{
 box_use_parser(expr, action)
 }
@@ -16,4 +16,10 @@ Used for side-effects provided by the \code{action} list of functions.
 }
 \description{
 Custom \{languageserver\} parser hook for \{box\} modules.
+}
+\examples{
+\dontrun{
+  box_use_parser(expr = expression(box::use(fs)), action = new.env())
+}
+
 }

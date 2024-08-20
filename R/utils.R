@@ -3,6 +3,11 @@
 #' @param file_path File name to append `{box.lsp}` configuration lines.
 #' @returns Writes configuration lines to `file_path`.
 #'
+#' @examples
+#' \dontrun{
+#'   use_box_lsp()
+#' }
+#'
 #' @export
 use_box_lsp <- function(file_path = ".Rprofile") {
   rprofile <- fs::path_package("box.lsp", "Rprofile.R")
