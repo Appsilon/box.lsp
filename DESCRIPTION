@@ -1,6 +1,6 @@
 Package: box.lsp
 Title: Provides box-compatibility for languageserver
-Version: 0.0.0.9005
+Version: 0.0.0.9006
 Authors@R: 
   c(
     person("Ricardo Rodrigo", "Basa", role = c("aut", "cre"), email = "opensource+rodrigo@appsilon.com"),

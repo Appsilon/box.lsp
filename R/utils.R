@@ -17,7 +17,10 @@ use_box_lsp <- function(file_path = ".Rprofile") {
     }
     write(to_write, file = file_path, append = TRUE)
     cli::cli_alert_success(
-      "{{box.lsp}} configuration written to {file_path}. Please check the changes made."
+      c(
+        "{{box.lsp}} configuration written to {file_path}. Please check the changes made. ",
+        "A restart of your editor may be necessary for the changes to take effect."
+      )
     )
   }, error = function(e) {
     cli::cli_abort(e)
