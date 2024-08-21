@@ -38,13 +38,32 @@ process_module <- function(sym_name, signature, action) {
   action$parse(func_sig[[3L]])
 }
 
-#' Box::use Document Parser
+#' 'box::use' Document Parser
 #'
 #' Custom \{languageserver\} parser hook for \{box\} modules.
 #'
 #' @param expr An R expression to evaluate
 #' @param action A list of action functions from `languageserver:::parse_expr()`.
 #' @returns Used for side-effects provided by the `action` list of functions.
+#'
+#' @examples
+#' \dontrun{
+#'   action <- list(
+#'    assign = function(symbol, value) {
+#'      cat(paste("ASSIGN: ", symbol, value, "\n"))
+#'    },
+#'    update = function(packages) {
+#'      cat(paste("Packages: ", packages, "\n"))
+#'    },
+#'    parse = function(x) {
+#'      cat(paste("Parse: ", names(x), x, "\n"))
+#'    },
+#'    parse_args = function(x) {
+#'      cat(paste("Parse Args: ", names(x), x, "\n"))
+#'    }
+#'  )
+#'   box_use_parser(expr = expression(box::use(fs)), action = action)
+#' }
 #'
 #' @export
 box_use_parser <- function(expr, action) {

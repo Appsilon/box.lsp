@@ -15,3 +15,9 @@ Writes configuration lines to \code{file_path}.
 \description{
 Configures a project to use \{box.lsp\}
 }
+\examples{
+\dontrun{
+  use_box_lsp()
+}
+
+}

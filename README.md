@@ -9,16 +9,16 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
 | `box::use()`              | Code completion | Param completion | Tooltip help | As of version | Notes |
 |---------------------------|:-:|:-:|:-:|--------:|:-:|
-| `pkg[...]`                | &check; | &check; | &check; | 0.0.0.9001 | Full support |
-| `pkg[attach_list]`        | &check; | &check; | &check; | 0.0.0.9004 | Link to documentation |
+| `pkg[...]`                | &check; | &check; | &check; | 0.1.0 | Full support |
+| `pkg[attach_list]`        | &check; | &check; | &check; | 0.1.0 | Link to documentation |
 | `pkg`                     |   |   |   |         |   |
-| `prefix/mod[...]`         | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
-| `prefix/mod[attach_list]` | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
+| `prefix/mod[...]`         | &check; | &check; | &check; | 0.1.0 | No documentation |
+| `prefix/mod[attach_list]` | &check; | &check; | &check; | 0.1.0 | No documentation |
 | `prefix/mod`              |   |   |   |         |   |
 | `alias = pkg`             |   |   |   |         |   |
 | `alias = prefix/mod`      |   |   |   |         |   |
-| `pkg[alias = fun]`        | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
-| `prefix/mod[alias = fun]` | &check; | &check; | &check; | 0.0.0.9005 | No documentation |
+| `pkg[alias = fun]`        | &check; | &check; | &check; | 0.1.0 | No documentation |
+| `prefix/mod[alias = fun]` | &check; | &check; | &check; | 0.1.0 | No documentation |
 
 ![](./man/figures/box.lsp_in_action.gif)
 
@@ -97,7 +97,7 @@ client <- TCPLanguageClient$new(host = "localhost", port = 8888)
 
 #### On Instance B with `{languageserver}` package repo open
 
-Copy 
+Copy
 
 ```R
 source(".Rprofile")  # custom parsers, custom lsp config
