@@ -48,7 +48,21 @@ process_module <- function(sym_name, signature, action) {
 #'
 #' @examples
 #' \dontrun{
-#'   box_use_parser(expr = expression(box::use(fs)), action = new.env())
+#'   action <- list(
+#'    assign = function(symbol, value) {
+#'      cat(paste("ASSIGN: ", symbol, value, "\n"))
+#'    },
+#'    update = function(packages) {
+#'      cat(paste("Packages: ", packages, "\n"))
+#'    },
+#'    parse = function(x) {
+#'      cat(paste("Parse: ", names(x), x, "\n"))
+#'    },
+#'    parse_args = function(x) {
+#'      cat(paste("Parse Args: ", names(x), x, "\n"))
+#'    }
+#'  )
+#'   box_use_parser(expr = expression(box::use(fs)), action = action)
 #' }
 #'
 #' @export
