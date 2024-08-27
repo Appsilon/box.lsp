@@ -14,9 +14,7 @@ use_box_lsp <- function(file_path = ".Rprofile") {
     glue::glue("Would you like to create or modify the `{file_path}` file? (yes/No) ")
   )
   response <- substr(response, 1, 1)
-  if (response == "Y" || response == "y") {
-    overwrite <- TRUE
-  } else {
+  if (!(response == "Y" || response == "y")) {
     cli::cli_abort("`{file_path}` file creation/modification cancelled!")
   }
 
