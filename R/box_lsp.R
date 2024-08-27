@@ -47,7 +47,7 @@ process_module <- function(sym_name, signature, action) {
 #' @returns Used for side-effects provided by the `action` list of functions.
 #'
 #' @examples
-#' \donttsst{
+#' \donttest{
 #'   action <- list(
 #'    assign = function(symbol, value) {
 #'      cat(paste("ASSIGN: ", symbol, value, "\n"))

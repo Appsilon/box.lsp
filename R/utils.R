@@ -4,7 +4,7 @@
 #' @returns Writes configuration lines to `file_path`.
 #'
 #' @examples
-#' if (interactive() {
+#' if (interactive()) {
 #'   use_box_lsp()
 #' }
 #'
