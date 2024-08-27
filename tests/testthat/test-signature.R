@@ -1,4 +1,5 @@
 test_that("signature works with box-attached functions", {
+  testthat::skip_on_cran()
   skip("SKIP. Erratic, inconsistent.")
   client <- language_client()
 

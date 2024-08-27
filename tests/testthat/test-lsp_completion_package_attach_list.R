@@ -1,4 +1,5 @@
 test_that("completion of package attached function list works", {
+  testthat::skip_on_cran()
   client <- language_client()
 
   temp_file <- withr::local_tempfile(fileext = ".R")
