@@ -41,7 +41,8 @@ use_box_lsp <- function(file_path = ".Rprofile") {
         cli::cli(
           cli::cli_alert(
             "Would you like to create `{file_path}` with {{box_lsp}} configuration? (yes/No)",
-            wrap = TRUE)
+            wrap = TRUE
+          )
         )
       )
       response <- substr(response, 1, 1)
