@@ -10,6 +10,16 @@
 #'
 #' @export
 use_box_lsp <- function(file_path = ".Rprofile") {
+  response <- readline(
+    glue::glue("Would you like to create or modify the `{file_path}` file? (yes/No) ")
+  )
+  response <- substr(response, 1, 1)
+  if (response == "Y" || response == "y") {
+    overwrite <- TRUE
+  } else {
+    cli::cli_abort("`{file_path}` file creation/modification cancelled!")
+  }
+
   rprofile <- fs::path_package("box.lsp", "Rprofile.R")
   to_write <- readLines(rprofile)
 
