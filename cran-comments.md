@@ -15,7 +15,7 @@ if(interactive()){} if possible, then users can see that the functions
 are not intended for use in scripts / functions that are supposed to run
 non interactively.
 
-`\dontrun` replaced with `if(interactive)` in `box.lsp::use_box_lsp` and `\donttest` in `box.lsp::box_use_parser`.
+`\dontrun` replaced with `if(interactive())` in `box.lsp::use_box_lsp` and `\donttest` in `box.lsp::box_use_parser`.
 
 > Please ensure that your functions do not write by default or in your
 examples/vignettes/tests in the user's home filespace (including the
@@ -24,7 +24,7 @@ Please omit any default path in writing functions. In your
 examples/vignettes/tests you can write to tempdir().
 -> R/utils.R and your tests
 
-All examples that could write in the user's filespace are blocked by using `if(interactive())`. Tests are using `withr::temp*` functions to prevent that. `box.lsp::use_box_lsp` still has the default path set, but to prevent from writing anything by accident it now requires a confirmation from the user (with default set to No).
+All examples that could write in the user's filespace are blocked by using `if(interactive())`. Tests are using `withr::temp*` or `withr::local*` functions to prevent that. `box.lsp::use_box_lsp` still has the default path set, but to prevent from writing anything by accident it now requires a confirmation from the user (with default set to No).
 
 ## R CMD check results
 
