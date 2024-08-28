@@ -18,7 +18,7 @@ Used for side-effects provided by the \code{action} list of functions.
 Custom \{languageserver\} parser hook for \{box\} modules.
 }
 \examples{
-\dontrun{
+\donttest{
   action <- list(
    assign = function(symbol, value) {
      cat(paste("ASSIGN: ", symbol, value, "\n"))

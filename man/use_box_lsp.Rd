@@ -16,7 +16,7 @@ Writes configuration lines to \code{file_path}.
 Configures a project to use \{box.lsp\}
 }
 \examples{
-\dontrun{
+if (interactive()) {
   use_box_lsp()
 }
 

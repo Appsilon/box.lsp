@@ -4,3 +4,4 @@
 ^\.github$
 ^\.lintr$
 .log
+^cran-comments\.md$

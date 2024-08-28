@@ -1,4 +1,5 @@
 test_that("completion of whole package attached works", {
+  testthat::skip_on_cran()
   skip("SKIP. Not implemented.")
   client <- language_client()
 
