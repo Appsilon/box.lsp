@@ -24,8 +24,15 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
 ## How to use
 
-1. `box.lsp::use_box_lsp()` to configure your project's `.Rprofile` file.
-2. Restart the R session to load `.Rprofile`.
+1. Install `box.lsp` and `langaugeserver` (`languageserver` is not going to be installed by default!).
+
+> __NOTE__: In Rhino, install `box.lsp` with `rhino::pkg_install("box.lsp")` and `languageserver` with `renv::install("languageserver")`.
+`box.lsp` needs to be added to `dependencies.R` and stored in `renv.lock`, as it will be used in `.Rprofile`.
+On the other hand, installing `languageserver` makes sense only if one uses VSCode or Vim, and should be used on the level of the
+developer's environment.
+
+2. `box.lsp::use_box_lsp()` to configure your project's `.Rprofile` file.
+3. Restart the R session to load `.Rprofile`.
 
 ## How to develop
 
