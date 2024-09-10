@@ -1,3 +1,7 @@
+# box.lsp 0.1.1
+
+This addresses one CRAN Package Check error.
+
 # box.lsp 0.1.0 Resubmission
 
 > If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file
