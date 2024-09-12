@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Provides box Compatibility for languageserver • box.lsp</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
@@ -14,6 +20,7 @@
 <meta property="og:title" content="Provides box Compatibility for languageserver">
 <meta name="description" content="A box compatible custom language parser for the languageserver package to provide completion and signature hints in code editors.">
 <meta property="og:description" content="A box compatible custom language parser for the languageserver package to provide completion and signature hints in code editors.">
+<meta property="og:image" content="https://appsilon.github.io/box.lsp/logo.png">
 <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-5NSVSJKPW2"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -62,9 +69,16 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="boxlsp">box.lsp<a class="anchor" aria-label="anchor" href="#boxlsp"></a>
-</h1></div>
-<p><em>Experimental</em> custom language server parser hook for <a href="https://klmr.me/box/" class="external-link">box</a> modules</p>
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="boxlsp-">box.lsp 
+<a class="anchor" aria-label="anchor" href="#boxlsp-"></a>
+</h1>
+</div>
+<blockquote>
+<p><em>Experimental* custom language server parser hook for <a href="https://klmr.me/box/" class="external-link">box</a> modules.</em></p>
+</blockquote>
+<!-- badges: start -->
+
 <p>This package is an attempt to provide <a href="https://klmr.me/box/" class="external-link">box</a>-compatibility for <a href="https://github.com/REditorSupport/languageserver/" class="external-link">languageserver</a> used in VS Code.</p>
 <p>The code is based on initial work by <a href="https://github.com/Gotfrid" class="external-link">Pavel Demin</a>.</p>
 <div class="section level2">
@@ -317,6 +331,21 @@
 </div>
 </div>
 </div>
+<div class="section level2">
+<h2 id="contribute">Contribute<a class="anchor" aria-label="anchor" href="#contribute"></a>
+</h2>
+<p>If you want to contribute to this project, please submit a regular PR, once you’re done with the new feature or bug fix.</p>
+<p>Reporting a bug is also helpful - please use <a href="https://github.com/Appsilon/box.lsp/issues" class="external-link">Github issues</a> and describe your problem as detailed as possible.</p>
+</div>
+<div class="section level2">
+<h2 id="appsilon">Appsilon<a class="anchor" aria-label="anchor" href="#appsilon"></a>
+</h2>
+<p><img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%"></p>
+<p>Appsilon is a <strong>Posit (formerly RStudio) Full Service Certified Partner</strong>.<br> Learn more at <a href="https://appsilon.com" class="external-link">appsilon.com</a>.</p>
+<p>Get in touch <a href="mailto:opensource@appsilon.com">opensource@appsilon.com</a></p>
+<p>Explore the <a href="https://rhinoverse.dev" class="external-link">Rhinoverse</a> - a family of R packages built around <a href="https://appsilon.github.io/rhino/" class="external-link">Rhino</a>!</p>
+<p><a href="https://appsilon.us16.list-manage.com/subscribe?u=c042d7c0dbf57c5c6f8b54598&amp;id=870d5bfc05" target="_blank" class="external-link"> <img src="https://raw.githubusercontent.com/Appsilon/website-cdn/gh-pages/shiny_weekly_light.jpg" alt="Subscribe for Shiny tutorials, exclusive articles, R/Shiny community events, and more."></a></p>
+</div>
 </div>
   </main><aside class="col-md-3"><div class="github">
 <h2 data-toc-skip>GitHub</h2>
@@ -330,14 +359,14 @@
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=box.lsp" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/Appsilon/box.lsp/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/Appsilon/box.lsp/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
 <div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small>LGPL (&gt;= 3)</small></li>
+<li><a href="https://www.r-project.org/Licenses/LGPL-3" class="external-link">LGPL-3</a></li>
 </ul>
 </div>
 
@@ -359,7 +388,13 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=box.lsp" class="external-link"><img src="https://www.r-pkg.org/badges/version/box.lsp" alt="CRAN"></a></li>
+<li><a href="https://github.com/Appsilon/box.lsp/actions/workflows/test-and-lint.yaml" class="external-link"><img src="https://github.com/Appsilon/box.lsp/actions/workflows/test-and-lint.yaml/badge.svg" alt="CI"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
