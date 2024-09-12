@@ -1,6 +1,6 @@
 # box.lsp (development version)
 
-* Handle long function signatures spanning across multiple lines.
+* Fixed critical bug that causes `languageserver` to crash: Handle long function signatures spanning across multiple lines. (@Gotfrid #23)
 
 # box.lsp 0.1.1
 
