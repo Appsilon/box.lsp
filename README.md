@@ -1,5 +1,10 @@
-# box.lsp
-*Experimental* custom language server parser hook for `{box}` modules
+# box.lsp <a href="https://appsilon.github.io/box.lsp/"><img src="man/figures/logo.png" align="right" alt="box.lsp logo" style="height: 140px;"></a>
+> _Experimental* custom language server parser hook for `{box}` modules._
+
+<!-- badges: start -->
+[![CRAN](https://www.r-pkg.org/badges/version/box.lsp)](https://cran.r-project.org/package=box.lsp)
+[![CI](https://github.com/Appsilon/box.lsp/actions/workflows/test-and-lint.yaml/badge.svg)](https://github.com/Appsilon/box.lsp/actions/workflows/test-and-lint.yaml)
+<!-- badges: end -->
 
 This package is an attempt to provide `{box}`-compatibility for `{languageserver}` used in VS Code.
 
@@ -160,3 +165,24 @@ client$send_message(
 ```
 
 The interactive debugger runs in Instance B.
+
+## Contribute
+
+If you want to contribute to this project, please submit a regular PR, once you're done with the new feature or bug fix.
+
+Reporting a bug is also helpful - please use [Github issues](https://github.com/Appsilon/box.lsp/issues) and describe your problem as detailed as possible.
+
+## Appsilon
+
+<img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
+
+Appsilon is a **Posit (formerly RStudio) Full Service Certified Partner**.<br/>
+Learn more at [appsilon.com](https://appsilon.com).
+
+Get in touch [opensource@appsilon.com](mailto:opensource@appsilon.com)
+
+Explore the [Rhinoverse](https://rhinoverse.dev) - a family of R packages built around [Rhino](https://appsilon.github.io/rhino/)!
+
+<a href = "https://appsilon.us16.list-manage.com/subscribe?u=c042d7c0dbf57c5c6f8b54598&id=870d5bfc05" target="_blank">
+  <img src="https://raw.githubusercontent.com/Appsilon/website-cdn/gh-pages/shiny_weekly_light.jpg" alt="Subscribe for Shiny tutorials, exclusive articles, R/Shiny community events, and more."/>
+</a>
