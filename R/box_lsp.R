@@ -133,7 +133,12 @@ box_use_parser <- function(expr, action) {
 
         if (this_function != "...") {
           namespaced_function <- paste0(as.character(x[[2]]), "::", this_function)
-          signature <- deparse(eval(parse(text = namespaced_function, keep.source = TRUE)))[[1]]
+          function_expression <- eval(parse(text = namespaced_function, keep.source = TRUE))
+          function_signature <- setdiff(
+            deparse(function_expression),
+            deparse(body(function_expression))
+          )
+          signature <- trimws(gsub("\\s+", " ", x = paste(function_signature, collapse = "")))
           sym_name <- ifelse(this_alias == "", this_function, this_alias)
 
           process_module(sym_name, signature, action)
