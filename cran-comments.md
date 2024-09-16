@@ -1,3 +1,7 @@
+# box.lsp 0.1.2
+
+This bugfix release addresses a critical bug that causes `languageserver` to crash.
+
 # box.lsp 0.1.1
 
 This addresses one CRAN Package Check error.

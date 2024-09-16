@@ -6,3 +6,4 @@
 .log
 ^cran-comments\.md$
 ^pkgdown$
+^docs$
