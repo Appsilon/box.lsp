@@ -1,3 +1,7 @@
+# box.lsp (development version)
+
+* Added a check for `box.lsp` before loading the box.lsp languageserver options. This was causing CI and Docker builds to fail.
+
 # box.lsp 0.1.2
 
 * Fixed critical bug that causes `languageserver` to crash: Handle long function signatures spanning across multiple lines. (@Gotfrid #23)
