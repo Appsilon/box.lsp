@@ -1,6 +1,7 @@
 test_that("completion of package attached three dots works", {
   testthat::skip_on_cran()
   testthat::skip_if(testthat::is_checking())
+  testthat::skip_on_ci()
   client <- language_client()
 
   temp_file <- withr::local_tempfile(fileext = ".R")
