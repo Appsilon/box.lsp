@@ -1,3 +1,7 @@
+# box.lsp 0.1.3
+
+This bugfix release addresses a bug that causes R CMD Check in CI and Docker builds to fail.
+
 # box.lsp 0.1.2
 
 This bugfix release addresses a critical bug that causes `languageserver` to crash.
