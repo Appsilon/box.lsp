@@ -1,4 +1,4 @@
-# box.lsp (development version)
+# box.lsp 0.1.3
 
 * Added a check for `box.lsp` before loading the box.lsp languageserver options. This was causing CI and Docker builds to fail.
 
