@@ -29,7 +29,7 @@ The code is based on initial work by [Pavel Demin](https://github.com/Gotfrid).
 
 ## How to use
 
-1. Install `box.lsp` and `langaugeserver` (`languageserver` is not going to be installed by default!).
+1. Install `box.lsp` and `languageserver` (`languageserver` is not going to be installed by default!).
 
 > __NOTE__: In Rhino, install `box.lsp` with `rhino::pkg_install("box.lsp")` and `languageserver` with `renv::install("languageserver")`.
 `box.lsp` needs to be added to `dependencies.R` and stored in `renv.lock`, as it will be used in `.Rprofile`.
