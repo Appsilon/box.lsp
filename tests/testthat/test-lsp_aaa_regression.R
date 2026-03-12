@@ -12,7 +12,7 @@ test_that("Completion of attached package functions works", {
     ),
     temp_file
   )
-# browser()
+
   client %>% did_open(temp_file)
 
   result <- client %>% respond_completion(
