@@ -132,16 +132,25 @@ box_use_parser <- function(expr, action) {
         this_alias <- rlang::names2(attached_functions)[[y]]
 
         if (this_function != "...") {
-          namespaced_function <- paste0(as.character(x[[2]]), "::", this_function)
-          function_expression <- eval(parse(text = namespaced_function, keep.source = TRUE))
-          function_signature <- setdiff(
-            deparse(function_expression),
-            deparse(body(function_expression))
-          )
-          signature <- trimws(gsub("\\s+", " ", x = paste(function_signature, collapse = "")))
-          sym_name <- ifelse(this_alias == "", this_function, this_alias)
+          tryCatch({
+            namespaced_function <- paste0(as.character(x[[2]]), "::", this_function)
+            function_expression <- eval(parse(text = namespaced_function, keep.source = TRUE))
+            function_signature <- setdiff(
+              deparse(function_expression),
+              deparse(body(function_expression))
+            )
+            signature <- trimws(gsub("\\s+", " ", x = paste(function_signature, collapse = "")))
+            # Remove trailing opening brace that deparse may include on the signature line
+            # (deparse format can vary across R versions)
+            signature <- trimws(sub("\\{\\s*$", "", signature))
+            sym_name <- ifelse(this_alias == "", this_function, this_alias)
 
-          process_module(sym_name, signature, action)
+            process_module(sym_name, signature, action)
+          }, error = function(e) {
+            message("box.lsp: could not resolve function '", this_function,
+                    "' from package '", as.character(x[[2]]), "': ", conditionMessage(e))
+            NULL
+          })
         }
       })
 
