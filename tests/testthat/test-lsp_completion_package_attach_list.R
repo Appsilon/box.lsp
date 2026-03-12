@@ -40,6 +40,7 @@ test_that("completion of package attached function list works", {
 })
 
 test_that("completion of package attached function with alias works", {
+  testthat::skip_on_cran()
   testthat::skip_on_os("windows")
   client <- language_client()
 
@@ -62,6 +63,7 @@ test_that("completion of package attached function with alias works", {
 })
 
 test_that("completion of package attach list does not return non-attached functions", {
+  testthat::skip_on_cran()
   client <- language_client()
 
   temp_file <- withr::local_tempfile(fileext = ".R")

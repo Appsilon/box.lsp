@@ -1,3 +1,7 @@
+# box.lsp (development)
+
+* Skip tests on CRAN because this is a Language Server Protocol plugin and cannot be tested outside of an LSP environment.
+
 # box.lsp 0.1.3
 
 * Added a check for `box.lsp` before loading the box.lsp languageserver options. This was causing CI and Docker builds to fail.

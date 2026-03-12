@@ -1,3 +1,7 @@
+# box.lsp 0.1.4
+
+This address CRAN build errors. This package is a Language Server Protocol plugin and cannot reliably be tested outside of an LSP environment.
+
 # box.lsp 0.1.3
 
 This bugfix release addresses a bug that causes R CMD Check in CI and Docker builds to fail.
