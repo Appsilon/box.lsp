@@ -13,7 +13,7 @@ test_that("signature works with box-attached functions", {
     temp_file
   )
 
-  client %>% did_save(temp_file)
+  client %>% did_open(temp_file)
 
   result <- client %>% respond_signature(
     temp_file, c(1, 10),

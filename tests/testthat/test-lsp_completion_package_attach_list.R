@@ -13,7 +13,7 @@ test_that("completion of package attached function list works", {
     temp_file
   )
 
-  client %>% did_save(temp_file)
+  client %>% did_open(temp_file)
 
   result <- client %>% respond_completion(
     temp_file, c(1, 5),
@@ -53,7 +53,7 @@ test_that("completion of package attached function with alias works", {
     temp_file
   )
 
-  client %>% did_save(temp_file)
+  client %>% did_open(temp_file)
 
   result <- client %>% respond_completion(
     temp_file, c(1, 2),
@@ -75,7 +75,7 @@ test_that("completion of package attach list does not return non-attached functi
     temp_file
   )
 
-  client %>% did_save(temp_file)
+  client %>% did_open(temp_file)
 
   result <- client %>% respond_completion(
     temp_file, c(1, 5)

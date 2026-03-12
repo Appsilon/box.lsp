@@ -1,5 +1,6 @@
 # box.lsp (development)
 
+* Update test helper utils to match `{languageserver@0.3.17}`
 * Skip tests on CRAN because this is a Language Server Protocol plugin and cannot be tested outside of an LSP environment.
 
 # box.lsp 0.1.3
