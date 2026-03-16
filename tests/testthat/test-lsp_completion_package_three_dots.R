@@ -1,5 +1,4 @@
 test_that("completion of package attached three dots works", {
-  testthat::skip("Fails in interactive environment. Works fine in VSCode.")
   testthat::skip_on_cran()
   testthat::skip_if(testthat::is_checking())
   testthat::skip_on_ci()
