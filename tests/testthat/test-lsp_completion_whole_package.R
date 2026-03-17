@@ -15,7 +15,7 @@ test_that("completion of whole package attached works", {
     temp_file
   )
 
-  client %>% did_save(temp_file)
+  client %>% did_open(temp_file)
 
   result <- client %>% respond_completion(
     temp_file, c(1, 14),

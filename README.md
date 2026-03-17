@@ -79,12 +79,13 @@ writeLines(
   c(
     "box::use(stringr[...])",
     "str_c",
-    "str_m"
+    "str_m",
+    "str_e"
   ),
   temp_file
 )
 
-client %>% did_save(temp_file)
+client %>% did_open(temp_file)
 
 client %>% respond_completion(
   temp_file, c(1, 5))
