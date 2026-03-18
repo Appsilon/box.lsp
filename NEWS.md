@@ -1,3 +1,5 @@
+# box.lsp (development version)
+
 # box.lsp 0.1.4 
 
 * No changes made to LSP plugin logic. Changes made to unit tests.
