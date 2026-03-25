@@ -70,7 +70,7 @@ test_that("completion of package attach list does not return non-attached functi
   writeLines(
     c(
       "box::use(stringr[str_count, str_match])",
-      "str_e"
+      "str_c"
     ),
     temp_file
   )
@@ -78,8 +78,9 @@ test_that("completion of package attach list does not return non-attached functi
   client %>% did_open(temp_file)
 
   result <- client %>% respond_completion(
-    temp_file, c(1, 5)
+    temp_file, c(1, 5),
+    retry_when = function(result) result$items %>% keep(~ .$label == "str_count") %>% length() == 0
   )
-
-  expect_length(result$items %>% keep(~ .$label == "str_extract"), 0)
+  expect_length(result$items %>% keep(~ .$label == "str_count"), 1)
+  expect_length(result$items %>% keep(~ .$label == "str_conv"), 0)
 })
